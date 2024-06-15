@@ -1,38 +1,95 @@
-.App {
+body {
+  background-color: #8697c4;
+}
+
+h1,
+h3,
+p {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+pre {
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.question {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.app-container {
+  width: 80%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+}
+
+.responses-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.response-box {
+  background-color: #7089ca;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  word-wrap: break-word; /* Ensures long words break to a new line */
+}
+
+.response-box h3 {
+  margin: 0 0 5px 0;
+}
+
+.response-box p,
+.response-box pre {
+  margin: 0;
+  white-space: pre-wrap; /* Preserves whitespace and ensures long lines wrap */
+}
+
+.input-form {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #8697c4;
+}
+
+.input-box {
+  flex-grow: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  word-wrap: break-word; /* Ensures long words break to a new line */
+  background-color: #ede8f5;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #3d52a0;
   color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+textarea:focus,
+input:focus {
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.submit-button:hover {
+  background-color: #25377a;
 }
