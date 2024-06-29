@@ -7,54 +7,58 @@ const App = () => {
   const [responses, setResponses] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
-  useEffect(() => {
-    if (submitted) {
-      const fetchMe = async () => {
-        const url = "https://open-ai21.p.rapidapi.com/chatgpt";
-        const options = {
-          method: "POST",
-          headers: {
-            "x-rapidapi-key": `${key}`,
-            "x-rapidapi-host": "open-ai21.p.rapidapi.com",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            messages: [
-              {
-                role: "user",
-                content: input,
-              },
-            ],
-            web_access: false,
-          }),
-        };
-
-        try {
-          const response = await fetch(url, options);
-          const result = await response.json();
-          console.log(input);
-          console.log(result);
-          setResponses((prevResponses) => [
-            ...prevResponses,
-            { question: input, answer: result },
-          ]);
-        } catch (error) {
-          console.error(error);
-        } finally {
-          setSubmitted(false); // Reset submitted state
-          setInput(""); // Clear the input field after submission
-        }
+  const grabResponse = (storedValue) => {
+    const fetchMe = async () => {
+      const url = "https://open-ai21.p.rapidapi.com/chatgpt";
+      const options = {
+        method: "POST",
+        headers: {
+          "x-rapidapi-key": `${key}`,
+          "x-rapidapi-host": "open-ai21.p.rapidapi.com",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          messages: [
+            {
+              role: "user",
+              content: storedValue,
+            },
+          ],
+          web_access: false,
+        }),
       };
 
-      fetchMe();
-    }
-  }, [submitted, input]);
+      try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        console.log(result);
+        console.log(storedValue);
+        console.log(input);
+        setResponses((prevResponses) => [
+          ...prevResponses,
+          { question: storedValue, answer: result },
+        ]);
+      } catch (error) {
+        console.error(error);
+        alert(error);
+        console.log(storedValue);
+        setInput(storedValue);
+      } finally {
+        setInput(""); // Clear the input field after submission
+        setSubmitted(false); // Reset submitted state
+      }
+    };
+
+    fetchMe();
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input.trim() !== "") {
       setSubmitted(true);
-      input = input.trim();
+      const storedInput = input.trim();
+      setInput("Fetching response..."); // Clear the input field after submission
+      grabResponse(storedInput);
     } else {
       alert("Empty input");
     }
