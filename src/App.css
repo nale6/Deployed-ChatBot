@@ -34,10 +34,19 @@ pre {
 .responses-container {
   flex-grow: 1;
   overflow-y: auto;
-  border: 1px solid #ccc;
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 20px;
+  scroll-behavior: smooth;
+}
+
+.responses-container::-webkit-scrollbar {
+  display: none;
+}
+
+.responses-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .response-box {

@@ -1,11 +1,12 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import key from "./Key.js";
 
 const App = () => {
   var [input, setInput] = useState("");
   const [responses, setResponses] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  let bottomRef = useRef();
 
   const grabResponse = (storedValue) => {
     const fetchMe = async () => {
@@ -42,14 +43,24 @@ const App = () => {
         console.error(error);
         alert(error);
         console.log(storedValue);
-        setInput(storedValue);
+        setResponses((prevResponses) => [
+          ...prevResponses,
+          { question: storedValue, answer: "m" },
+        ]);
       } finally {
         setInput(""); // Clear the input field after submission
         setSubmitted(false); // Reset submitted state
+        autoScroll();
       }
     };
 
     fetchMe();
+  };
+
+  const autoScroll = (e) => {
+    setTimeout(() => {
+      bottomRef.current.scrollIntoView();
+    }, 100);
   };
 
   const handleSubmit = (e) => {
@@ -73,9 +84,10 @@ const App = () => {
             <h3>Question:</h3>
             <p>{response.question}</p>
             <h3>Response from AI:</h3>
-            <pre>{response.answer.result}</pre>
+            <p>{response.answer.result}</p>
           </div>
         ))}
+        <div ref={bottomRef} className="scrollToBottom" />
       </div>
       <form onSubmit={handleSubmit} className="input-form">
         <input
