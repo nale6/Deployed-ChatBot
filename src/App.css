@@ -3,15 +3,14 @@ body {
 }
 
 h1,
-h3,
-p {
+h3 {
   text-align: center;
 }
 
-h3 {
+/* h3 {
   padding-top: 10px;
   padding-bottom: 10px;
-}
+} */
 
 pre {
   text-align: center;
@@ -52,11 +51,18 @@ pre {
 .response-box {
   background-color: #7089ca;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   border: 1px solid #e0e0e0;
   border-radius: 50px;
   word-wrap: break-word; /* Ensures long words break to a new line */
-  min-width: 259px;
+  padding: 18px;
+}
+
+.response-box2 {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  word-wrap: break-word; /* Ensures long words break to a new line */
 }
 
 .response-box h3 {
@@ -102,4 +108,32 @@ input:focus {
 
 .submit-button:hover {
   background-color: #25377a;
+}
+
+.Typewriter__cursor {
+  display: none;
+}
+
+img {
+  width: 4%;
+  height: 4%;
+  margin-left: -30px;
+}
+
+.container-input {
+  float: right;
+  max-width: 60%;
+}
+
+p {
+}
+
+.container-response {
+  float: left;
+  min-width: 100%;
+  text-indent: 10px;
+}
+
+.scrollToBottom {
+  float: right;
 }

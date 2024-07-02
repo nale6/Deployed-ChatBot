@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect, useRef } from "react";
 import key from "./Key.js";
+import Typewriter from "typewriter-effect";
 
 const App = () => {
   var [input, setInput] = useState("");
@@ -41,7 +42,6 @@ const App = () => {
         ]);
       } catch (error) {
         console.error(error);
-        alert(error);
         console.log(storedValue);
         setResponses((prevResponses) => [
           ...prevResponses,
@@ -76,32 +76,46 @@ const App = () => {
   };
 
   return (
-    <div className="app-container">
-      <h1>ChatBot With OpenAI API</h1>
-      <div className="responses-container">
-        {responses.map((response, index) => (
-          <div key={index} className="response-box">
-            <h3>Question:</h3>
-            <p>{response.question}</p>
-            <h3>Response from AI:</h3>
-            <p>{response.answer.result}</p>
-          </div>
-        ))}
-        <div ref={bottomRef} className="scrollToBottom" />
+    <>
+      <div className="app-container">
+        <h1>ChatBot With OpenAI API</h1>
+        <div className="responses-container">
+          {responses.map((response, index) => (
+            <>
+              <div className="container-input">
+                <div key={index} className="response-box">
+                  <p>{response.question}</p>
+                </div>
+              </div>
+              <div className="container-response">
+                <div key={index} className="response-box2">
+                  <img className="img" src={require("./aiphoto4.png")}></img>
+                  <Typewriter
+                    onInit={(typewriter) => {
+                      typewriter.changeDelay(0.1);
+                      typewriter.typeString(response.answer.result).start();
+                    }}
+                  />
+                </div>
+              </div>
+            </>
+          ))}
+          <div ref={bottomRef} className="scrollToBottom" />
+        </div>
+        <form onSubmit={handleSubmit} className="input-form">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Type your message here"
+            className="input-box"
+          />
+          <button type="submit" className="submit-button">
+            Send
+          </button>
+        </form>
       </div>
-      <form onSubmit={handleSubmit} className="input-form">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Type your message here"
-          className="input-box"
-        />
-        <button type="submit" className="submit-button">
-          Send
-        </button>
-      </form>
-    </div>
+    </>
   );
 };
 

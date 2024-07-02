@@ -1,3 +1,5 @@
+TODO: Make it scroll down as typewriter is updating
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
