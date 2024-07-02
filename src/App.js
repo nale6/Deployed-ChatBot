@@ -2,13 +2,15 @@ import "./App.css";
 import React, { useState, useEffect, useRef } from "react";
 import key from "./Key.js";
 import Typewriter from "typewriter-effect";
+import ScrollToBottom from "react-scroll-to-bottom";
 
 const App = () => {
   var [input, setInput] = useState("");
   const [responses, setResponses] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
   let bottomRef = useRef();
-  const pRef = useRef(null);
+  let scrollRef = useRef();
 
   const grabResponse = (storedValue) => {
     const fetchMe = async () => {
@@ -81,7 +83,7 @@ const App = () => {
     <>
       <div className="app-container">
         <h1>ChatBot With OpenAI API</h1>
-        <div className="responses-container">
+        <div className="responses-container" ref={scrollRef}>
           {responses.map((response, index) => (
             <>
               <div className="container-input">
@@ -93,11 +95,13 @@ const App = () => {
                 <div key={index} className="response-box2">
                   <img className="img" src={require("./aiphoto4.png")}></img>
                   <Typewriter
-                    ref={pRef}
                     onInit={(typewriter) => {
                       typewriter.changeDelay(0.1);
                       if (typeof response.answer === "string") {
-                        typewriter.typeString(response.answer).start();
+                        typewriter
+                          .typeString(response.answer)
+                          .callFunction(() => autoScroll())
+                          .start();
                       } else if (response.answer.result) {
                         typewriter.typeString(response.answer.result).start();
                       }

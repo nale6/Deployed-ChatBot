@@ -2,6 +2,10 @@ body {
   background-color: #8697c4;
 }
 
+p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 h1,
 h3 {
   text-align: center;
@@ -35,7 +39,8 @@ pre {
 
 .responses-container {
   flex-grow: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 20px;
@@ -75,12 +80,10 @@ pre {
 .response-box p,
 .response-box pre {
   margin: 0;
-  white-space: pre-wrap; /* Preserves whitespace and ensures long lines wrap */
 }
 
 .input-form {
   display: flex;
-  justify-content: space-between;
   padding: 10px;
   background-color: #8697c4;
 }
@@ -122,7 +125,7 @@ img {
   height: 4%;
   min-width: 33px;
   min-height: 33px;
-  margin-left: -30px;
+  margin-left: -20px;
 }
 
 .container-input {
@@ -130,13 +133,9 @@ img {
   max-width: 60%;
 }
 
-p {
-}
-
 .container-response {
   float: left;
   min-width: 100%;
-  text-indent: 10px;
 }
 
 .scrollToBottom {
