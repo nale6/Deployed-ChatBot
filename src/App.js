@@ -8,6 +8,7 @@ const App = () => {
   const [responses, setResponses] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   let bottomRef = useRef();
+  const pRef = useRef(null);
 
   const grabResponse = (storedValue) => {
     const fetchMe = async () => {
@@ -41,11 +42,12 @@ const App = () => {
           { question: storedValue, answer: result },
         ]);
       } catch (error) {
+        const errorMessage = "An error has occurred, please try again." + error;
         console.error(error);
         console.log(storedValue);
         setResponses((prevResponses) => [
           ...prevResponses,
-          { question: storedValue, answer: "m" },
+          { question: storedValue, answer: errorMessage },
         ]);
       } finally {
         setInput(""); // Clear the input field after submission
@@ -91,9 +93,14 @@ const App = () => {
                 <div key={index} className="response-box2">
                   <img className="img" src={require("./aiphoto4.png")}></img>
                   <Typewriter
+                    ref={pRef}
                     onInit={(typewriter) => {
                       typewriter.changeDelay(0.1);
-                      typewriter.typeString(response.answer.result).start();
+                      if (typeof response.answer === "string") {
+                        typewriter.typeString(response.answer).start();
+                      } else if (response.answer.result) {
+                        typewriter.typeString(response.answer.result).start();
+                      }
                     }}
                   />
                 </div>
