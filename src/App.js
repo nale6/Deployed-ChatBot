@@ -8,7 +8,6 @@ const App = () => {
   var [input, setInput] = useState("");
   const [responses, setResponses] = useState([]);
   const [submitted, setSubmitted] = useState(false);
-  const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
   let bottomRef = useRef();
   let scrollRef = useRef();
 
