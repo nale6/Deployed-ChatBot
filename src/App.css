@@ -16,8 +16,8 @@ h3 {
   padding-bottom: 10px;
 } */
 
-pre {
-  text-align: center;
+.Typewriter__wrapper {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .question {
