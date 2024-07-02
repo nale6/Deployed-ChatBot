@@ -74,8 +74,6 @@ const App = () => {
       const storedInput = input.trim();
       setInput("Fetching response..."); // Clear the input field after submission
       grabResponse(storedInput);
-    } else {
-      alert("Empty input");
     }
   };
 
@@ -118,10 +116,13 @@ const App = () => {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your message here"
+            placeholder="Type your message here..."
             className="input-box"
           />
-          <button type="submit" className="submit-button">
+          <button
+            type="submit"
+            className={"greyed-out" + (input != 0 ? " submit-button" : "")}
+          >
             Send
           </button>
         </form>

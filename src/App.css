@@ -8,6 +8,8 @@ p {
 
 h1,
 h3 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
   text-align: center;
 }
 
@@ -90,21 +92,35 @@ h3 {
 
 .input-box {
   flex-grow: 1;
-  padding: 10px;
+  padding: 8px;
   margin-right: 10px;
   border: 1px solid #ccc;
   border-radius: 10px;
   word-wrap: break-word; /* Ensures long words break to a new line */
   background-color: #ede8f5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.greyed-out {
+  padding: 8px 20px;
+  background-color: #3d52a034;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  pointer-events: none;
 }
 
 .submit-button {
-  padding: 10px 20px;
+  padding: 8px 20px;
   background-color: #3d52a0;
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  pointer-events: all;
 }
 
 textarea:focus,
