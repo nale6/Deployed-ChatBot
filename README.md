@@ -1,4 +1,4 @@
-TODO: Make it scroll down as typewriter is updating
+TODO: Make it scroll down as typewriter is updating, make another version connected to hosted LLM, add image handling, perhaps separate components so it's not all in one file
 
 # Getting Started with Create React App
 
