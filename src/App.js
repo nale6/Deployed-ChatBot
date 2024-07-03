@@ -8,6 +8,7 @@ const App = () => {
   var [input, setInput] = useState("");
   const [responses, setResponses] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const [scrolledToBottom, setScrolledToBottom] = useState(true);
   let bottomRef = useRef();
   let scrollRef = useRef();
 
@@ -43,7 +44,8 @@ const App = () => {
           { question: storedValue, answer: result },
         ]);
       } catch (error) {
-        const errorMessage = "An error has occurred, please try again." + error;
+        const errorMessage =
+          "An error has occurred, please try again. " + error;
         console.error(error);
         console.log(storedValue);
         setResponses((prevResponses) => [
@@ -66,6 +68,10 @@ const App = () => {
     }, 100);
   };
 
+  const constantScrolling = (e) => {
+    bottomRef.current.scrollIntoView();
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input.trim() !== "") {
@@ -75,6 +81,36 @@ const App = () => {
       grabResponse(storedInput);
     }
   };
+
+  // const handleScroll = () => {
+  //   if (scrollRef.current) {
+  //     const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
+  //     console.log(scrollTop, scrollHeight, clientHeight);
+  //     if (scrollTop + clientHeight >= scrollHeight - 100) {
+  //       setScrolledToBottom(true);
+  //     } else {
+  //       setScrolledToBottom(false);
+  //     }
+  //   }
+  // };
+
+  // const targetNode = document.body;
+  // const config = { childList: true, subtree: true };
+
+  // const callback = function (mutationsList, observer) {
+  //   for (let mutation of mutationsList) {
+  //     if (mutation.type === "childList") {
+  //       handleScroll();
+  //       if (scrolledToBottom === true) {
+  //         constantScrolling();
+  //       }
+  //       console.log(scrolledToBottom);
+  //     }
+  //   }
+  // };
+
+  // const observer = new MutationObserver(callback);
+  // observer.observe(targetNode, config);
 
   return (
     <>
