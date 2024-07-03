@@ -8,9 +8,10 @@ const App = () => {
   var [input, setInput] = useState("");
   const [responses, setResponses] = useState([]);
   const [submitted, setSubmitted] = useState(false);
-  const [scrolledToBottom, setScrolledToBottom] = useState(true);
   let bottomRef = useRef();
   let scrollRef = useRef();
+
+  // const [scrolledToBottom, setScrolledToBottom] = useState(true);
 
   const grabResponse = (storedValue) => {
     const fetchMe = async () => {
