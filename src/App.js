@@ -14,6 +14,8 @@ const App = () => {
 
   // const [scrolledToBottom, setScrolledToBottom] = useState(true);
 
+  //This might work? https://discuss.streamlit.io/t/how-can-i-use-an-auto-scroll-to-the-bottom-of-the-page/39650/5
+
   const grabResponse = (storedValue) => {
     const fetchMe = async () => {
       const url = "https://open-ai21.p.rapidapi.com/chatgpt";
