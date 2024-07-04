@@ -1,8 +1,8 @@
 import "./App.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import key from "./Key.js";
 import Typewriter from "typewriter-effect";
-import ScrollToBottom from "react-scroll-to-bottom";
+import useStayScrolled from "react-stay-scrolled";
 
 const App = () => {
   var [input, setInput] = useState("");
@@ -10,6 +10,7 @@ const App = () => {
   const [submitted, setSubmitted] = useState(false);
   let bottomRef = useRef();
   let scrollRef = useRef();
+  const { stayScrolled } = useStayScrolled(scrollRef);
 
   // const [scrolledToBottom, setScrolledToBottom] = useState(true);
 
@@ -45,8 +46,7 @@ const App = () => {
           { question: storedValue, answer: result },
         ]);
       } catch (error) {
-        const errorMessage =
-          "An error has occurred, please try again. " + error;
+        const errorMessage = "An error has occurred, please try again." + error;
         console.error(error);
         console.log(storedValue);
         setResponses((prevResponses) => [
@@ -82,6 +82,10 @@ const App = () => {
       grabResponse(storedInput);
     }
   };
+
+  useEffect(() => {
+    stayScrolled();
+  });
 
   // const handleScroll = () => {
   //   if (scrollRef.current) {
