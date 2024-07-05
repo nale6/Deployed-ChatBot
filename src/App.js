@@ -47,7 +47,8 @@ const App = () => {
         const result = await response.json();
         updateResponse(responses.length, result);
       } catch (error) {
-        const errorMessage = "An error has occurred, please try again." + error;
+        const errorMessage =
+          "An error has occurred, please try again. " + error;
         console.error(error);
         console.log(storedValue);
         updateResponse(responses.length, errorMessage);
