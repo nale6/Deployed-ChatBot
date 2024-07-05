@@ -9,6 +9,7 @@ const App = () => {
   const [enteredInput, setEnteredInput] = useState([]);
   const [responses, setResponses] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   let bottomRef = useRef();
   let scrollRef = useRef();
   const { stayScrolled } = useStayScrolled(scrollRef);
@@ -37,28 +38,36 @@ const App = () => {
       };
 
       try {
-        const response = await fetch(url, options);
-        const result = await response.json();
+        setLoading(true);
         setResponses((prevResponses) => [
           ...prevResponses,
-          { question: storedValue, answer: result },
+          { question: storedValue, answer: null },
         ]);
+        const response = await fetch(url, options);
+        const result = await response.json();
+        updateResponse(responses.length, result);
       } catch (error) {
         const errorMessage = "An error has occurred, please try again." + error;
         console.error(error);
         console.log(storedValue);
-        setResponses((prevResponses) => [
-          ...prevResponses,
-          { question: storedValue, answer: errorMessage },
-        ]);
+        updateResponse(responses.length, errorMessage);
       } finally {
         setInput(""); // Clear the input field after submission
         setSubmitted(false); // Reset submitted state
+        setLoading(false);
         autoScroll();
       }
     };
 
     fetchMe();
+  };
+
+  const updateResponse = (index, response) => {
+    setResponses((prevResponses) => {
+      const updatedResponse = [...prevResponses];
+      updatedResponse[index] = { ...updatedResponse[index], answer: response };
+      return updatedResponse;
+    });
   };
 
   const autoScroll = (e) => {
@@ -76,7 +85,7 @@ const App = () => {
     if (input.trim() !== "") {
       setSubmitted(true);
       const storedInput = input.trim();
-      setInput("Fetching response..."); // Clear the input field after submission
+      setInput(""); // Clear the input field after submission
       setEnteredInput((prevInput) => [
         ...prevInput,
         { currentInput: storedInput },
@@ -102,22 +111,35 @@ const App = () => {
                 </div>
               </div>
               <div className="container-response">
-                <div key={index} className="response-box2">
-                  <img className="img" src={require("./aiphoto4.png")}></img>
-                  <Typewriter
-                    onInit={(typewriter) => {
-                      typewriter.changeDelay(0.1);
-                      if (typeof response.answer === "string") {
-                        typewriter
-                          .typeString(response.answer)
-                          .callFunction(() => autoScroll())
-                          .start();
-                      } else if (response.answer.result) {
-                        typewriter.typeString(response.answer.result).start();
-                      }
-                    }}
-                  />
-                </div>
+                {response.answer ? (
+                  <div key={index} className="response-box2">
+                    <img className="img" src={require("./aiphoto4.png")}></img>
+                    <Typewriter
+                      onInit={(typewriter) => {
+                        typewriter.changeDelay(0.1);
+                        if (typeof response.answer === "string") {
+                          typewriter
+                            .typeString(response.answer)
+                            .callFunction(() => autoScroll())
+                            .start();
+                        } else if (response.answer.result) {
+                          typewriter.typeString(response.answer.result).start();
+                        }
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <div className="container-response">
+                    <div className="response-box2">
+                      <img
+                        className="img"
+                        src={require("./aiphoto4.png")}
+                      ></img>
+                      <div className="space"></div>
+                      <div className="loading ">Loading . . .</div>
+                    </div>
+                  </div>
+                )}
               </div>
             </>
           ))}
@@ -129,11 +151,15 @@ const App = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message here..."
-            className="input-box"
+            className={"greyed-out-input" + (loading ? "" : " input-box")}
+            tabIndex={-1}
+            //todo: figure out way to make tabindex -1 ONLY when loading
           />
           <button
             type="submit"
-            className={"greyed-out" + (input != 0 ? " submit-button" : "")}
+            className={
+              "greyed-out-submit" + (input != 0 ? " submit-button" : "")
+            }
           >
             Send
           </button>

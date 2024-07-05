@@ -5,6 +5,7 @@ html {
 
 p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
 }
 
 h1,
@@ -100,6 +101,18 @@ h3 {
   background-color: #8697c4;
 }
 
+.greyed-out-input {
+  flex-grow: 1;
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  word-wrap: break-word; /* Ensures long words break to a new line */
+  background-color: #ede8f5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  pointer-events: none;
+}
+
 .input-box {
   flex-grow: 1;
   padding: 8px;
@@ -109,9 +122,10 @@ h3 {
   word-wrap: break-word; /* Ensures long words break to a new line */
   background-color: #ede8f5;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  pointer-events: all;
 }
 
-.greyed-out {
+.greyed-out-submit {
   padding: 8px 20px;
   background-color: #3d52a034;
   color: white;
@@ -166,4 +180,18 @@ img {
 
 .scrollToBottom {
   float: right;
+}
+
+.loading {
+  display: inline-flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  clip-path: inset(0 3ch 0 0);
+  animation: l 1s steps(4) infinite;
+}
+
+@keyframes l {
+  to {
+    clip-path: inset(0 -1ch 0 0);
+  }
 }
