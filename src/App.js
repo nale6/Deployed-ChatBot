@@ -6,13 +6,12 @@ import useStayScrolled from "react-stay-scrolled";
 
 const App = () => {
   var [input, setInput] = useState("");
+  const [enteredInput, setEnteredInput] = useState([]);
   const [responses, setResponses] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   let bottomRef = useRef();
   let scrollRef = useRef();
   const { stayScrolled } = useStayScrolled(scrollRef);
-
-  // const [scrolledToBottom, setScrolledToBottom] = useState(true);
 
   //This might work? https://discuss.streamlit.io/t/how-can-i-use-an-auto-scroll-to-the-bottom-of-the-page/39650/5
 
@@ -40,9 +39,6 @@ const App = () => {
       try {
         const response = await fetch(url, options);
         const result = await response.json();
-        console.log(result);
-        console.log(storedValue);
-        console.log(input);
         setResponses((prevResponses) => [
           ...prevResponses,
           { question: storedValue, answer: result },
@@ -81,6 +77,10 @@ const App = () => {
       setSubmitted(true);
       const storedInput = input.trim();
       setInput("Fetching response..."); // Clear the input field after submission
+      setEnteredInput((prevInput) => [
+        ...prevInput,
+        { currentInput: storedInput },
+      ]);
       grabResponse(storedInput);
     }
   };
@@ -88,36 +88,6 @@ const App = () => {
   useEffect(() => {
     stayScrolled();
   });
-
-  // const handleScroll = () => {
-  //   if (scrollRef.current) {
-  //     const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
-  //     console.log(scrollTop, scrollHeight, clientHeight);
-  //     if (scrollTop + clientHeight >= scrollHeight - 100) {
-  //       setScrolledToBottom(true);
-  //     } else {
-  //       setScrolledToBottom(false);
-  //     }
-  //   }
-  // };
-
-  // const targetNode = document.body;
-  // const config = { childList: true, subtree: true };
-
-  // const callback = function (mutationsList, observer) {
-  //   for (let mutation of mutationsList) {
-  //     if (mutation.type === "childList") {
-  //       handleScroll();
-  //       if (scrolledToBottom === true) {
-  //         constantScrolling();
-  //       }
-  //       console.log(scrolledToBottom);
-  //     }
-  //   }
-  // };
-
-  // const observer = new MutationObserver(callback);
-  // observer.observe(targetNode, config);
 
   return (
     <>

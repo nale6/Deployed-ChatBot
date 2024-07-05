@@ -1,4 +1,5 @@
-body {
+body,
+html {
   background-color: #8697c4;
 }
 
@@ -20,6 +21,7 @@ h3 {
 
 .Typewriter__wrapper {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  white-space: pre-wrap;
 }
 
 .question {
@@ -42,20 +44,23 @@ h3 {
 .responses-container {
   flex-grow: 1;
   overflow-y: scroll;
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 20px;
   scroll-behavior: smooth;
+  height: 100vh;
 }
 
 .responses-container::-webkit-scrollbar {
   display: none;
+  height: 100vh;
 }
 
 .responses-container {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  height: 100vh;
 }
 
 .response-box {
@@ -73,6 +78,11 @@ h3 {
   margin-bottom: 10px;
   border-radius: 50px;
   word-wrap: break-word; /* Ensures long words break to a new line */
+}
+
+.response-box,
+.response-box2 {
+  scroll-snap-align: start;
 }
 
 .response-box h3 {
