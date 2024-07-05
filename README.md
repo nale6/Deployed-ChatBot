@@ -1,6 +1,6 @@
-TODO: Make it scroll down as typewriter is updating, make another version connected to hosted LLM, add image handling, perhaps separate components so it's not all in one file.
+TODO: Make another version connected to hosted LLM, add image handling, perhaps separate components so it's not all in one file.
 
-Additionally need to do something about the placeholder "Fetching data" input, as it will make the submit button clickable and might lead to bugs.
+Make user force out of input text after entering, not sure how to do this though
 
 # Getting Started with Create React App
 
