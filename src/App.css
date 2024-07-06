@@ -134,6 +134,7 @@ h3 {
   cursor: pointer;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   pointer-events: none;
+  padding-bottom: 5px;
 }
 
 .submit-button {
@@ -145,6 +146,7 @@ h3 {
   cursor: pointer;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   pointer-events: all;
+  padding-bottom: 5px;
 }
 
 textarea:focus,
@@ -194,4 +196,38 @@ img {
   to {
     clip-path: inset(0 -1ch 0 0);
   }
+}
+
+.copy-button {
+  border: none;
+  background-color: #8697c4;
+  width: 9px;
+  height: 9px;
+  position: relative;
+  bottom: 7px;
+  left: 5px;
+  cursor: pointer;
+}
+
+.text-to-speech {
+  border: none;
+  background-color: #8697c4;
+  width: 9px;
+  height: 9px;
+  position: relative;
+  bottom: 27px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.rs-container {
+  border: none;
+  color: #8697c4;
+  opacity: 0;
+}
+
+.speaker {
+  position: relative;
+  top: 20px;
+  pointer-events: none;
 }

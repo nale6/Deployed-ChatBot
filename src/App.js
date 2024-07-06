@@ -1,8 +1,18 @@
 import "./App.css";
 import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import key from "./Key.js";
-import Typewriter from "typewriter-effect";
+import Typewriter, { TypewriterClass } from "typewriter-effect";
 import useStayScrolled from "react-stay-scrolled";
+import {
+  CopyIcon,
+  ReloadIcon,
+  SpeakerLoudIcon,
+  PaperPlaneIcon,
+  ArrowUpIcon,
+} from "@radix-ui/react-icons";
+import "react-speech";
+import { ReactSpeech } from "react-speech";
+import Speech from "./Speech.js";
 
 const App = () => {
   var [input, setInput] = useState("");
@@ -115,6 +125,28 @@ const App = () => {
                 {response.answer ? (
                   <div key={index} className="response-box2">
                     <img className="img" src={require("./aiphoto4.png")}></img>
+                    <button
+                      className="copy-button"
+                      onClick={() =>
+                        navigator.clipboard.writeText(
+                          typeof response.answer === "string"
+                            ? response.answer
+                            : response.answer.result
+                        )
+                      }
+                    >
+                      <CopyIcon />
+                    </button>
+                    <button className="text-to-speech">
+                      <SpeakerLoudIcon className="speaker" />
+                      <Speech
+                        text={
+                          typeof response.answer === "string"
+                            ? response.answer
+                            : response.answer.result
+                        }
+                      />
+                    </button>
                     <Typewriter
                       onInit={(typewriter) => {
                         typewriter.changeDelay(0.1);
@@ -152,7 +184,7 @@ const App = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message here..."
-            className={"greyed-out-input" + (loading ? "" : " input-box")}
+            className={"input-box"}
             tabIndex={-1}
             //todo: figure out way to make tabindex -1 ONLY when loading
           />
@@ -162,7 +194,7 @@ const App = () => {
               "greyed-out-submit" + (input != 0 ? " submit-button" : "")
             }
           >
-            Send
+            <ArrowUpIcon />
           </button>
         </form>
       </div>
