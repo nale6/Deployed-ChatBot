@@ -1,6 +1,6 @@
-TODO: Make another version connected to hosted LLM, add image handling, perhaps separate components so it's not all in one file.
+TODO: Make another version connected to hosted LLM, add image handling, perhaps separate components so it's not all in one file. <-- Begun process of separating components, might ignore image handling
 
-Make user force out of input text after entering, not sure how to do this though
+Make user force out of input text after entering, not sure how to do this though <-- Honestly doesn't matter, say that handling multiple inputs can be good, if someone wanted to use it maliciously they would do it anyway
 
 # Getting Started with Create React App
 
