@@ -1,17 +1,10 @@
 import "./App.css";
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import key from "./Key.js";
-import Typewriter, { TypewriterClass } from "typewriter-effect";
+import Typewriter from "typewriter-effect";
 import useStayScrolled from "react-stay-scrolled";
-import {
-  CopyIcon,
-  ReloadIcon,
-  SpeakerLoudIcon,
-  PaperPlaneIcon,
-  ArrowUpIcon,
-} from "@radix-ui/react-icons";
+import { CopyIcon, SpeakerLoudIcon, ArrowUpIcon } from "@radix-ui/react-icons";
 import "react-speech";
-import { ReactSpeech } from "react-speech";
 import Speech from "./Speech.js";
 
 const App = () => {
@@ -23,8 +16,6 @@ const App = () => {
   let bottomRef = useRef();
   let scrollRef = useRef();
   const { stayScrolled } = useStayScrolled(scrollRef);
-
-  //This might work? https://discuss.streamlit.io/t/how-can-i-use-an-auto-scroll-to-the-bottom-of-the-page/39650/5
 
   const grabResponse = (storedValue) => {
     const fetchMe = async () => {
@@ -85,10 +76,6 @@ const App = () => {
     setTimeout(() => {
       bottomRef.current.scrollIntoView();
     }, 100);
-  };
-
-  const constantScrolling = (e) => {
-    bottomRef.current.scrollIntoView();
   };
 
   const handleSubmit = (e) => {
@@ -185,8 +172,6 @@ const App = () => {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message here..."
             className={"input-box"}
-            tabIndex={-1}
-            //todo: figure out way to make tabindex -1 ONLY when loading
           />
           <button
             type="submit"
@@ -203,5 +188,3 @@ const App = () => {
 };
 
 export default App;
-
-// "x-rapidapi-key": "a19ff8e0d4mshc242df1707a9e69p1444eajsn1f3a0794cafe",
