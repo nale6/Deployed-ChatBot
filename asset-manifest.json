@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/nale6/ChatBot-OpenAI-Deployed/static/css/main.b3b0899f.css",
-    "main.js": "/nale6/ChatBot-OpenAI-Deployed/static/js/main.fc1cf83a.js",
-    "static/js/453.4fac3311.chunk.js": "/nale6/ChatBot-OpenAI-Deployed/static/js/453.4fac3311.chunk.js",
-    "static/media/aiphoto4.png": "/nale6/ChatBot-OpenAI-Deployed/static/media/aiphoto4.5da91ef04e6b7d2a40b1.png",
-    "index.html": "/nale6/ChatBot-OpenAI-Deployed/index.html",
-    "main.b3b0899f.css.map": "/nale6/ChatBot-OpenAI-Deployed/static/css/main.b3b0899f.css.map",
-    "main.fc1cf83a.js.map": "/nale6/ChatBot-OpenAI-Deployed/static/js/main.fc1cf83a.js.map",
-    "453.4fac3311.chunk.js.map": "/nale6/ChatBot-OpenAI-Deployed/static/js/453.4fac3311.chunk.js.map"
+    "main.css": "/nale6/Deployed-ChatBot/static/css/main.b3b0899f.css",
+    "main.js": "/nale6/Deployed-ChatBot/static/js/main.9d09d023.js",
+    "static/js/453.4fac3311.chunk.js": "/nale6/Deployed-ChatBot/static/js/453.4fac3311.chunk.js",
+    "static/media/aiphoto4.png": "/nale6/Deployed-ChatBot/static/media/aiphoto4.5da91ef04e6b7d2a40b1.png",
+    "index.html": "/nale6/Deployed-ChatBot/index.html",
+    "main.b3b0899f.css.map": "/nale6/Deployed-ChatBot/static/css/main.b3b0899f.css.map",
+    "main.9d09d023.js.map": "/nale6/Deployed-ChatBot/static/js/main.9d09d023.js.map",
+    "453.4fac3311.chunk.js.map": "/nale6/Deployed-ChatBot/static/js/453.4fac3311.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b3b0899f.css",
-    "static/js/main.fc1cf83a.js"
+    "static/js/main.9d09d023.js"
   ]
 }
