@@ -45,6 +45,12 @@ h3 {
     font-size: 1rem;
   }
 }
+@media screen and (device-width: 375px) and (device-height: 844px) {
+  h1,
+  h3 {
+    font-size: 3rem;
+  }
+}
 
 /* h3 {
   padding-top: 10px;
