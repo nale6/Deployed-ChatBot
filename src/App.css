@@ -7,6 +7,11 @@ html {
     max-width: 200px;
   }
 }
+@media screen and (max-width: 375px) {
+  body {
+    max-width: 150px;
+  }
+}
 
 p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -31,6 +36,13 @@ h3 {
     position: relative;
     width: 250px;
     right: 10px;
+  }
+}
+@media screen and (max-width: 375px) {
+  h1,
+  h3 {
+    padding-top: 10px;
+    font-size: 1rem;
   }
 }
 
@@ -135,12 +147,22 @@ h3 {
   display: flex;
   padding: 10px;
   background-color: #8697c4;
+  margin-left: 50px;
 }
 @media screen and (max-width: 320px) {
   .input-form {
     position: relative;
     padding-bottom: 5px;
+    margin-left: 0;
     right: 14px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .input-form {
+    position: relative;
+    margin-left: 0;
+    padding-bottom: 6px;
+    right: 20px;
   }
 }
 
