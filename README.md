@@ -8,4 +8,6 @@ RapidAPI itself is a RESTful API marketplace and serves as this project's minima
 
 Additionally, this project is text-only for the time being.
 
+Image used for AI is free for personal and commercial projects, found on here: https://unsplash.com/
+
 Made by Alejandro Cazorla
