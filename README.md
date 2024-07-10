@@ -4,6 +4,8 @@ This is a project in React meant to emulate Chat GPT's functionalities in asking
 
 This project utilizies the free plan of the OpenAI's RapidAPI, which has a monthly limit of 100 messages, and does not store history of messages.
 
+RapidAPI itself is a RESTful API marketplace and serves as this project's minimal backend implementation.
+
 Additionally, this project is text-only for the time being.
 
 Made by Alejandro Cazorla
