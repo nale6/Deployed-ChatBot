@@ -14,4 +14,4 @@ Image used for AI is free for personal and commercial projects, found on here: h
 
 Made by Alejandro Cazorla
 
-TODO: Responsive design, image implementation
+TODO: Responsive design, image implementation, update todo to make it pretty and profile
