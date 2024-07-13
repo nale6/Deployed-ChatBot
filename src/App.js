@@ -111,7 +111,7 @@ const App = () => {
               <div className="container-response">
                 {response.answer ? (
                   <div key={index} className="response-box2">
-                    <img className="img" src={require("./aiphoto4.png")}></img>
+                    <img className="img" src={require("./aiphoto6.jpg")}></img>
                     <button
                       className="copy-button"
                       onClick={() =>
