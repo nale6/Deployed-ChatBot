@@ -13,3 +13,5 @@ Currently looking into setting up mobile view.
 Image used for AI is free for personal and commercial projects, found on here: https://unsplash.com/
 
 Made by Alejandro Cazorla
+
+TODO: Responsive design, image implementation
