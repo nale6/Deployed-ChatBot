@@ -153,7 +153,7 @@ const App = () => {
                     <div className="response-box2">
                       <img
                         className="img"
-                        src={require("./aiphoto4.png")}
+                        src={require("./aiphoto6.jpg")}
                       ></img>
                       <div className="space"></div>
                       <div className="loading ">Loading . . .</div>
