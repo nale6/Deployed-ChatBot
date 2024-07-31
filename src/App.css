@@ -314,9 +314,22 @@ img {
   width: 9px;
   height: 9px;
   position: relative;
-  bottom: 27px;
+  bottom: 10px;
   left: 20px;
   cursor: pointer;
+}
+@media all and (-webkit-min-device-pixel-ratio: 10000),
+  not all and (-webkit-min-device-pixel-ratio: 0) {
+  .text-to-speech {
+    border: none;
+    background-color: #8697c4;
+    width: 9px;
+    height: 9px;
+    position: relative;
+    bottom: 27px;
+    left: 20px;
+    cursor: pointer;
+  }
 }
 
 .rs-container {
