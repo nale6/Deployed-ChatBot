@@ -14,4 +14,4 @@ Image used for AI is free for personal and commercial projects, found on here: h
 
 Made by Alejandro Cazorla
 
-TODO: Responsive design, image implementation, update todo to make it pretty and profile
+TODO: Responsive design, image implementation, update todo to make it pretty and profile implementation perhaps with history (Might need different API), additionally figure out why Opera speaker icon is placed differently than other browsers
