@@ -309,13 +309,14 @@ img {
 }
 
 .text-to-speech {
+  display: block;
   border: none;
   background-color: #8697c4;
   width: 9px;
   height: 9px;
   position: relative;
-  bottom: 10px;
-  left: 20px;
+  bottom: 47px;
+  left: 44px;
   cursor: pointer;
 }
 
