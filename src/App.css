@@ -319,11 +319,6 @@ img {
   cursor: pointer;
 }
 
-noindex:-o-prefocus,
-.text-to-speech {
-  bottom: 27px;
-}
-
 .rs-container {
   border: none;
   color: #8697c4;
