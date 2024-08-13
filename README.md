@@ -10,6 +10,8 @@ Additionally, this project is text-only for the time being.
 
 Responsive design towards mobile view is in development.
 
+Please note that the API has a monthly limit of 100 messages for the free plan.
+
 Image used for AI is free for personal and commercial projects, found on here: https://unsplash.com/
 
 Made by Alejandro Cazorla
