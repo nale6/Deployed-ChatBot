@@ -100,6 +100,7 @@ const App = () => {
     <>
       <div className="app-container">
         <h1>ChatBot With OpenAI API</h1>
+          <h2>AI can make mistakes or misunderstand context.</h2>
         <div className="responses-container" ref={scrollRef}>
           {responses.map((response, index) => (
             <>
